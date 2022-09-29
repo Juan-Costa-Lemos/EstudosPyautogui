@@ -36,6 +36,24 @@ pyautogui.click(pyautogui.locateCenterOnScreen('RPA_Automatize/ok.png'),duration
 #7- Subir totalmente a pagina
 pyautogui.click(678,443, duration=1.5)
 pyautogui.scroll(1100)
+sleep(1)
 #8- Descer até a parte de download
-# !Parei aqui por estar caindo a luz toda hora ! 27/09/2022 21:00
-#9- Clickar para fazer o download 
+for i in range(3):
+    pyautogui.hotkey('PgDn')
+    sleep(0.2)
+#9- Clickar para fazer o download excel
+print(pyautogui.locateCenterOnScreen('RPA_Automatize/excel.png'))
+pyautogui.moveTo(pyautogui.locateCenterOnScreen('RPA_Automatize/excel.png'),duration=1)
+pyautogui.scroll(-35)
+sleep(0.5)
+pyautogui.doubleClick()
+
+#10- Clickar para fazer download do pdf
+print(pyautogui.locateCenterOnScreen('RPA_Automatize/pdf.png'))
+pyautogui.moveTo(pyautogui.locateCenterOnScreen('RPA_Automatize/pdf.png'),duration=1)
+pyautogui.scroll(-35)
+sleep(0.5)
+pyautogui.doubleClick()
+
+#11- Criar um alerta que diga que terminou
+pyautogui.alert(text='VOCÊ TERMINOU!!',title='Automação finalizada',button='ok')
