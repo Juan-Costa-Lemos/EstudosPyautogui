@@ -1,12 +1,15 @@
 from time import sleep
 import pyautogui
-
 import webbrowser
+
 '''
 Esse bot foi executado em tela cheia no meu computador com uma resolução de 1336x768.
 
 '''
 
+login = pyautogui.prompt(text='Digite seu login', title='Informações obrigatorias')
+senha = pyautogui.password(text='Digite sua senha', title='Informações obrigatorias')
+pagina = pyautogui.prompt(text='Digite o nome da pagina de busca para o bot curtir e comentar a primeira publicação', title='Informações obrigatorias')
 def sair():
     #sai da publicação
     pyautogui.click(1319,98, duration=2)
@@ -32,8 +35,6 @@ def curtir():
     sleep(3)
     pyautogui.click(1105,677, duration=2)
 
-login = pyautogui.prompt(text='Digite seu login', title='Informações obrigatorias')
-senha = pyautogui.password(text='Digite sua senha', title='Informações obrigatorias')
 
 def logar():
     # Entrar com meu usuario
@@ -51,7 +52,6 @@ def logar():
     #fechar janelinha de salvar senha
     pyautogui.click(845,80,duration=2)
 
-pagina = pyautogui.prompt(text='Digite a pagina de busca para o bot curtir e comentar a primeira publicação', title='Informações obrigatorias')
 
 def pesquisa():
     pesquisar = pyautogui.locateCenterOnScreen('pesquisar.png')
@@ -67,23 +67,18 @@ def pesquisa():
     pyautogui.click(347,687, duration=2)
     sleep(3)
     
-
-
 while True:
-        # 1 - Navegar até o insta
+        # Navegar até a pagina do insta
         webbrowser.open_new_tab('https://www.instagram.com/')
         sleep(5)
-        #logando
+        #Logando
         logar()
-        # localizar pesquisar
+        # localizar pesquisar e fazer pesquisa
         pesquisa()
-        # 8 - Verificar se esta curtida ou não a postagem 
-        # 9 - Se já tiver curtido não fazer nada
+        # Verificar se esta curtida ou não a postagem 
         curtido = pyautogui.locateCenterOnScreen('curtido.png')
         if curtido is not None:
             sair()
-        # 11 - Se não tiver curtido, curtir a foto
-        # 12 - se não tiver comentado, comentar
         elif curtido == None:
             curtir()
             sair()
