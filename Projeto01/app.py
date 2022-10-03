@@ -1,8 +1,10 @@
 from time import sleep
 import pyautogui
+
 import webbrowser
 '''
-Esse bot foi executado em tela cheia no meu computador com uma resolução de 1336x768
+Esse bot foi executado em tela cheia no meu computador com uma resolução de 1336x768.
+
 '''
 
 def sair():
@@ -66,25 +68,22 @@ def pesquisa():
     sleep(3)
     
 
-try:
-    while True:
-            # 1 - Navegar até o insta
-            webbrowser.open_new_tab('https://www.instagram.com/')
-            sleep(5)
-            #logando
-            logar()
-            # localizar pesquisar
-            pesquisa()
-            # 8 - Verificar se esta curtida ou não a postagem 
-            # 9 - Se já tiver curtido não fazer nada
-            curtido = pyautogui.locateCenterOnScreen('curtido.png')
-            if curtido is not None:
-                sair()
-            # 11 - Se não tiver curtido, curtir a foto
-            # 12 - se não tiver comentado, comentar
-            elif curtido == None:
-                curtir()
-                sair()
-except:
-    pass
 
+while True:
+        # 1 - Navegar até o insta
+        webbrowser.open_new_tab('https://www.instagram.com/')
+        sleep(5)
+        #logando
+        logar()
+        # localizar pesquisar
+        pesquisa()
+        # 8 - Verificar se esta curtida ou não a postagem 
+        # 9 - Se já tiver curtido não fazer nada
+        curtido = pyautogui.locateCenterOnScreen('curtido.png')
+        if curtido is not None:
+            sair()
+        # 11 - Se não tiver curtido, curtir a foto
+        # 12 - se não tiver comentado, comentar
+        elif curtido == None:
+            curtir()
+            sair()
